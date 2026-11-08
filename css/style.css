@@ -1,0 +1,189 @@
+:root {
+  --font-body: system-ui, -apple-system, sans-serif;
+  --font-mono: monospace;
+  --color-bg: #fafafa;
+  --color-text: #1a1a1a;
+  --color-muted: #555;
+  --color-link: #0057ff;
+  --max-width: 640px;
+  --spacing: 1.5rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Layout --- */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+/* --- Header / Nav --- */
+
+header {
+  padding: 2rem 0 1rem;
+}
+
+nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+nav .logo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+nav .logo:hover {
+  color: var(--color-link);
+}
+
+nav .links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+nav .links a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+nav .links a:hover,
+nav .links a[aria-current="page"] {
+  color: var(--color-text);
+}
+
+/* --- Main --- */
+
+main {
+  padding: 3rem 0 4rem;
+}
+
+/* --- Hero (Home) --- */
+
+.hero p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* --- Projects (Portfolio) --- */
+
+.projects-intro {
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.projects {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.projects li {
+  line-height: 1.5;
+}
+
+.projects .title {
+  font-weight: 600;
+}
+
+.projects .desc {
+  color: var(--color-muted);
+}
+
+.projects a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 0.875rem;
+}
+
+.projects a:hover {
+  color: var(--color-text);
+}
+
+/* --- Footer --- */
+
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid #e0e0e0;
+  margin-top: auto;
+}
+
+footer .social {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+footer .social a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+footer .social a:hover {
+  color: var(--color-text);
+}
+
+/* --- Links (general) --- */
+
+a {
+  color: var(--color-link);
+  text-underline-offset: 2px;
+}
+
+/* --- Focus styles --- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- Full height layout --- */
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
