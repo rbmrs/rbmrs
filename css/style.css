@@ -168,19 +168,27 @@ footer {
 
 footer ul {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   gap: 1.25rem;
   list-style: none;
-  font-size: 0.875rem;
 }
 
 footer a {
+  display: inline-flex;
+  align-items: center;
   color: var(--color-muted);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 footer a:hover {
   color: var(--color-text);
+}
+
+footer svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 /* --- Focus styles --- */
