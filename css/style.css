@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Newsreader:wght@600&display=swap');
+
 :root {
-  --font-body: system-ui, -apple-system, sans-serif;
-  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-mono: monospace;
   --color-bg: #fafafa;
   --color-text: #1a1a1a;
@@ -55,7 +57,7 @@ header {
 header h1 {
   font-family: var(--font-heading);
   font-size: 2.25rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.01em;
   margin-bottom: 0.75rem;
 }
