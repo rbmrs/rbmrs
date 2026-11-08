@@ -43,12 +43,12 @@ body {
 /* --- Header --- */
 
 header {
-  padding: 5.5rem 0 2rem;
+  padding: 5.5rem 0 0;
 }
 
 @media (max-width: 640px) {
   header {
-    padding: 3.5rem 0 1.5rem;
+    padding: 3.5rem 0 0;
   }
 }
 
@@ -69,6 +69,10 @@ header h1 a:hover {
   color: var(--color-muted);
 }
 
+nav {
+  margin: 0 0 2.25rem;
+}
+
 nav ul {
   display: flex;
   justify-content: flex-start;
@@ -76,21 +80,25 @@ nav ul {
   list-style: none;
 }
 
-nav a {
+nav a,
+nav span[aria-current="page"] {
+  font-size: 0.875rem;
   color: var(--color-muted);
   text-decoration: none;
-  font-size: 0.9375rem;
 }
 
-nav a:hover,
-nav a[aria-current="page"] {
+nav a:hover {
   color: var(--color-text);
+}
+
+nav span[aria-current="page"] {
+  cursor: default;
 }
 
 /* --- Main --- */
 
 main {
-  padding: 2.5rem 0 4rem;
+  padding: 0 0 4rem;
 }
 
 /* --- Sections --- */
