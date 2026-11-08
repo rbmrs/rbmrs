@@ -8,7 +8,7 @@
   --color-text: #1a1a1a;
   --color-muted: #555;
   --color-link: #0057ff;
-  --max-width: 640px;
+  --max-width: 34rem;
   --spacing: 1.5rem;
 }
 
@@ -44,7 +44,6 @@ body {
 
 header {
   padding: 5.5rem 0 2rem;
-  text-align: center;
 }
 
 @media (max-width: 640px) {
@@ -72,7 +71,7 @@ header h1 a:hover {
 
 nav ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.25rem;
   list-style: none;
 }
