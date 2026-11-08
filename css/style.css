@@ -159,12 +159,11 @@ main a:hover {
 
 footer {
   padding: 2rem 0;
-  text-align: center;
 }
 
 footer ul {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.25rem;
   list-style: none;
   font-size: 0.875rem;
