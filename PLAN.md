@@ -50,9 +50,10 @@ rbmrs/
 ### Home (`index.html`)
 
 ```
-<header>  → nav: "Rafael Moraes" (left) · Home, Portfolio (right)
-<main>    → short intro: who you are, what you do (SRE / backend / AI)
-<footer>  → GitHub · LinkedIn · Email
+<header>  → nav: "Rafael Moraes" (left) · Home, Portfolio (left-aligned below name)
+<main>    → "Now" (Headless commerce with Shopify Hydrogen/Remix/TS at Form Factory + tooling)
+          → "Background" (10+ yrs, 8 yrs Senior Game Dev at Main Leaf Games, Unity/C#, CS degree)
+<footer>  → Email · GitHub · LinkedIn · Twitter/X icons + Theme toggle (light/dark)
 ```
 
 ### Portfolio (`portfolio.html`)
