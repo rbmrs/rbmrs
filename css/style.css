@@ -1,5 +1,6 @@
 :root {
   --font-body: system-ui, -apple-system, sans-serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
   --font-mono: monospace;
   --color-bg: #fafafa;
   --color-text: #1a1a1a;
@@ -27,6 +28,9 @@ body {
   background: var(--color-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --- Layout --- */
@@ -35,70 +39,96 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--spacing);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-/* --- Header / Nav --- */
+/* --- Header --- */
 
 header {
-  padding: 2rem 0 1rem;
+  padding: 3rem 0 2rem;
+  text-align: center;
 }
 
-nav {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
 }
 
-nav .logo {
-  font-size: 1.125rem;
-  font-weight: 600;
+header h1 a {
   color: var(--color-text);
   text-decoration: none;
 }
 
-nav .logo:hover {
-  color: var(--color-link);
+header h1 a:hover {
+  color: var(--color-muted);
 }
 
-nav .links {
+nav ul {
   display: flex;
+  justify-content: center;
   gap: 1.25rem;
   list-style: none;
 }
 
-nav .links a {
+nav a {
   color: var(--color-muted);
   text-decoration: none;
   font-size: 0.9375rem;
 }
 
-nav .links a:hover,
-nav .links a[aria-current="page"] {
+nav a:hover,
+nav a[aria-current="page"] {
   color: var(--color-text);
 }
 
 /* --- Main --- */
 
 main {
-  padding: 3rem 0 4rem;
+  flex: 1;
+  padding: 2.5rem 0 4rem;
 }
 
-/* --- Hero (Home) --- */
+/* --- Sections --- */
 
-.hero p {
-  font-size: 1.125rem;
+.section-label {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+main p {
+  margin-bottom: 1rem;
   line-height: 1.7;
-  max-width: 560px;
+}
+
+main section {
+  margin-bottom: 2.5rem;
+}
+
+main section:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Links in body --- */
+
+main a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+main a:hover {
+  color: var(--color-muted);
 }
 
 /* --- Projects (Portfolio) --- */
-
-.projects-intro {
-  color: var(--color-muted);
-  margin-bottom: 2rem;
-}
 
 .projects {
   list-style: none;
@@ -108,7 +138,7 @@ main {
 }
 
 .projects li {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .projects .title {
@@ -120,45 +150,31 @@ main {
 }
 
 .projects a {
-  color: var(--color-link);
-  text-decoration: underline;
-  text-underline-offset: 2px;
   font-size: 0.875rem;
-}
-
-.projects a:hover {
-  color: var(--color-text);
 }
 
 /* --- Footer --- */
 
 footer {
   padding: 2rem 0;
-  border-top: 1px solid #e0e0e0;
-  margin-top: auto;
+  text-align: center;
 }
 
-footer .social {
+footer ul {
   display: flex;
+  justify-content: center;
   gap: 1.25rem;
   list-style: none;
   font-size: 0.875rem;
 }
 
-footer .social a {
+footer a {
   color: var(--color-muted);
   text-decoration: none;
 }
 
-footer .social a:hover {
+footer a:hover {
   color: var(--color-text);
-}
-
-/* --- Links (general) --- */
-
-a {
-  color: var(--color-link);
-  text-underline-offset: 2px;
 }
 
 /* --- Focus styles --- */
@@ -168,22 +184,4 @@ button:focus-visible {
   outline: 2px solid var(--color-link);
   outline-offset: 2px;
   border-radius: 2px;
-}
-
-/* --- Full height layout --- */
-
-body {
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
 }
