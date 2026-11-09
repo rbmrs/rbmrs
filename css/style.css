@@ -130,12 +130,17 @@ nav a:hover {
   color: var(--color-text);
 }
 
-nav [aria-current="page"] {
+nav [aria-current="page"],
+nav a[aria-current="true"] {
   color: var(--color-text);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   cursor: default;
+}
+
+nav a[aria-current="true"] {
+  cursor: pointer;
 }
 
 /* --- Main --- */
@@ -201,6 +206,71 @@ main a:hover {
 
 .projects a {
   font-size: 0.875rem;
+}
+
+/* --- Game page --- */
+
+/* Player breaks out of the text column; the Unity build is a fixed 960x642 page, scaled down to fit. */
+.player {
+  --player-scale: 1;
+  width: min(960px, 100vw - 2 * var(--spacing));
+  aspect-ratio: 960 / 644;
+  margin-left: 50%;
+  translate: -50% 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.player iframe {
+  display: block;
+  width: 960px;
+  height: 644px;
+  border: 0;
+  transform: scale(var(--player-scale));
+  transform-origin: 0 0;
+}
+
+.player-meta {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.controls {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+}
+
+.controls th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  padding: 0 0.75rem 0.5rem 0;
+}
+
+.controls td {
+  padding: 0.375rem 0.75rem 0.375rem 0;
+  vertical-align: top;
+}
+
+.controls tbody tr + tr td {
+  border-top: 1px solid color-mix(in srgb, var(--color-muted) 25%, transparent);
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: 0.05rem 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--color-muted) 50%, transparent);
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
 /* --- Footer --- */
