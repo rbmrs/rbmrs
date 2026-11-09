@@ -4,9 +4,9 @@
   --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-heading: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-mono: monospace;
-  --color-bg: #fafafa;
-  --color-text: #1a1a1a;
-  --color-muted: #555;
+  --color-bg: #faf4e5;
+  --color-text: #1f1b14;
+  --color-muted: #5e5647;
   --color-link: #0057ff;
   --max-width: 34rem;
   --spacing: 1.5rem;
@@ -26,17 +26,17 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #161615;
-    --color-text: #e8e8e6;
-    --color-muted: #9a9a96;
+    --color-bg: #1a1712;
+    --color-text: #ede5d3;
+    --color-muted: #a39a87;
   }
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --color-bg: #161615;
-  --color-text: #e8e8e6;
-  --color-muted: #9a9a96;
+  --color-bg: #1a1712;
+  --color-text: #ede5d3;
+  --color-muted: #a39a87;
 }
 
 html[data-theme="light"] {
