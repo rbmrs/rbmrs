@@ -119,17 +119,22 @@ nav ul {
 }
 
 nav a,
-nav span[aria-current="page"] {
+nav [aria-current="page"] {
   font-size: 0.875rem;
   color: var(--color-muted);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
   color: var(--color-text);
 }
 
-nav span[aria-current="page"] {
+nav [aria-current="page"] {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
   cursor: default;
 }
 
