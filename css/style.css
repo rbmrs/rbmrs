@@ -243,7 +243,7 @@ main a:hover {
 }
 
 .player--type-master {
-  --player-h: 600;
+  --player-h: 440;
   background: var(--color-bg);
   border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
 }
