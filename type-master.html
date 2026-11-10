@@ -34,7 +34,6 @@
           </ul>
         </nav>
       </div>
-      <img src="assets/avatar.jpg" alt="Rafael Moraes" class="avatar" width="80" height="80">
     </header>
 
     <main>
@@ -45,7 +44,7 @@
             title="Type Master — typing game"
             width="960" height="600" scrolling="no"></iframe>
         </div>
-        <p class="player-meta note">Needs a physical keyboard. Click the game to focus it. <a href="https://rbmrs.dev/thetypemaster/" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a></p>
+        <p class="player-meta note">Needs a physical keyboard. Start typing to play. <a href="https://rbmrs.dev/thetypemaster/" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a></p>
       </section>
 
       <section>
@@ -161,6 +160,26 @@
       new ResizeObserver(function () {
         box.style.setProperty('--player-scale', Math.min(1, box.clientWidth / designWidth));
       }).observe(box);
+    })();
+  </script>
+  <script>
+    // Keys typed anywhere on the page go to the game, so no click is needed.
+    // Same origin as the iframe, so we can focus it and replay the key inside it.
+    (function () {
+      var frame = document.querySelector('#player iframe');
+      if (!frame) return;
+      document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+        if (!/^[a-z]$/i.test(e.key) && e.key !== ' ' && e.key !== 'Enter' && e.key !== 'Backspace') return;
+        var t = e.target;
+        if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(t.tagName))) return;
+        var doc;
+        try { doc = frame.contentDocument; } catch (err) { return; }
+        if (!doc) return;
+        e.preventDefault();
+        frame.contentWindow.focus();
+        doc.dispatchEvent(new KeyboardEvent('keydown', { key: e.key, bubbles: true }));
+      });
     })();
   </script>
 </body>
