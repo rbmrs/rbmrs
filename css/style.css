@@ -260,6 +260,15 @@ main a:hover {
   transform: none;
 }
 
+/* Phones: the frame runs edge to edge, so the game gets the full screen width. */
+@media (max-width: 600px) {
+  .player--type-master {
+    width: 100vw;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
 .player-meta {
   margin-top: 0.75rem;
   font-size: 0.875rem;
