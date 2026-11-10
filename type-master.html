@@ -44,7 +44,6 @@
             title="Type Master — typing game"
             width="1440" height="900" scrolling="no"></iframe>
         </div>
-        <p class="player-meta note">Needs a physical keyboard. <button type="button" class="link-button" id="fullscreen" hidden>Full screen ⛶</button> <a href="https://rbmrs.dev/thetypemaster/" target="_blank" rel="noopener noreferrer">New tab ↗</a></p>
       </section>
 
       <section>
@@ -159,22 +158,6 @@
       new ResizeObserver(function () {
         box.style.setProperty('--player-scale', Math.min(1, box.clientWidth / designWidth));
       }).observe(box);
-    })();
-  </script>
-  <script>
-    // Full screen: show the iframe at the real viewport size.
-    // The browser drops the scale transform for :fullscreen elements.
-    (function () {
-      var button = document.getElementById('fullscreen');
-      var frame = document.querySelector('#player iframe');
-      if (!button || !frame || !frame.requestFullscreen || !document.fullscreenEnabled) return;
-      button.hidden = false;
-      button.addEventListener('click', function () {
-        frame.requestFullscreen().then(function () {
-          frame.focus();
-          if (frame.contentWindow) frame.contentWindow.focus();
-        }).catch(function () {});
-      });
     })();
   </script>
   <script>

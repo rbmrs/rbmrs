@@ -249,22 +249,6 @@ main a:hover {
   font-size: 0.875rem;
 }
 
-/* A button that reads like the body links next to it. */
-.link-button {
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  color: var(--color-text);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  cursor: pointer;
-}
-
-.link-button:hover {
-  color: var(--color-muted);
-}
-
 .note {
   font-size: 0.875rem;
   color: var(--color-muted);
