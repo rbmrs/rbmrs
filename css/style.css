@@ -237,15 +237,49 @@ main a:hover {
   transform-origin: 0 0;
 }
 
+/* Project pages: a breadcrumb as wide as the game frame, lined up with its left edge. */
+.crumbs {
+  width: min(960px, 100vw - 2 * var(--spacing));
+  margin: 5.5rem 0 1rem 50%;
+  translate: -50% 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.crumbs a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.crumbs a:hover {
+  color: var(--color-text);
+}
+
+.crumbs [aria-current="page"] {
+  color: var(--color-text);
+}
+
+.crumbs-sep {
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .crumbs {
+    margin-top: 3.5rem;
+  }
+}
+
+.page-game .crumbs {
+  width: min(1440px, 100vw - 2 * var(--spacing));
+  margin-top: 1.25rem;
+}
+
 /* Type Master is responsive: no scaling, the frame fills the screen below a compact nav. */
-.page-game header {
-  padding-top: 1.25rem;
-}
-
-.page-game nav {
-  margin-bottom: 1rem;
-}
-
 .player--type-master {
   width: min(1440px, 100vw - 2 * var(--spacing));
   height: clamp(28rem, 100svh - 5rem, 56rem);
