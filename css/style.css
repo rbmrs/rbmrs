@@ -243,7 +243,8 @@ main a:hover {
 }
 
 .player--type-master {
-  --player-h: 440;
+  --player-w: 1440;
+  --player-h: 900;
   background: var(--color-bg);
   border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
 }
@@ -251,6 +252,22 @@ main a:hover {
 .player-meta {
   margin-top: 0.75rem;
   font-size: 0.875rem;
+}
+
+/* A button that reads like the body links next to it. */
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: var(--color-muted);
 }
 
 .note {
