@@ -208,6 +208,16 @@ main a:hover {
   font-size: 0.875rem;
 }
 
+.projects a.title {
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.projects a.title:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
 /* --- Game page --- */
 
 /* Player breaks out of the text column; the Unity build is a fixed 960x642 page, scaled down to fit. */
