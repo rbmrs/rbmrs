@@ -237,11 +237,27 @@ main a:hover {
   transform-origin: 0 0;
 }
 
+/* Type Master is responsive: no scaling, the frame fills the screen below a compact nav. */
+.page-game header {
+  padding-top: 1.25rem;
+}
+
+.page-game nav {
+  margin-bottom: 1rem;
+}
+
 .player--type-master {
-  --player-w: 1440;
-  --player-h: 900;
+  width: min(1440px, 100vw - 2 * var(--spacing));
+  height: clamp(28rem, 100svh - 5rem, 56rem);
+  aspect-ratio: auto;
   background: var(--color-bg);
   border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
+}
+
+.player--type-master iframe {
+  width: 100%;
+  height: 100%;
+  transform: none;
 }
 
 .player-meta {

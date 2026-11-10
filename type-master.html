@@ -22,7 +22,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-game">
   <div class="container">
     <header>
       <div>
@@ -42,31 +42,13 @@
           <iframe
             src="https://rbmrs.dev/thetypemaster/?embed=1"
             title="Type Master — typing game"
-            width="1440" height="900" scrolling="no"></iframe>
+            scrolling="no"></iframe>
         </div>
       </section>
 
       <section>
         <p class="section-label">Type Master</p>
         <p>Timed typing game, built with React. Type the highlighted word, then press <kbd>Space</kbd> or <kbd>Enter</kbd>. The timer starts on your first keystroke. Pick a 30s, 1m or 3m round.</p>
-      </section>
-
-      <section>
-        <p class="section-label">Scoring</p>
-        <table class="controls">
-          <thead>
-            <tr>
-              <th scope="col">Action</th>
-              <th scope="col">Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Correct letter</td><td>+1</td></tr>
-            <tr><td>Incorrect letter</td><td>−1</td></tr>
-            <tr><td>Correct word</td><td>+5</td></tr>
-            <tr><td>Incorrect word</td><td>−3</td></tr>
-          </tbody>
-        </table>
       </section>
     </main>
 
@@ -148,16 +130,6 @@
         updateLabel();
       });
       updateLabel();
-    })();
-  </script>
-  <script>
-    (function () {
-      var box = document.getElementById('player');
-      if (!box || !window.ResizeObserver) return;
-      var designWidth = box.querySelector('iframe').width;
-      new ResizeObserver(function () {
-        box.style.setProperty('--player-scale', Math.min(1, box.clientWidth / designWidth));
-      }).observe(box);
     })();
   </script>
   <script>
