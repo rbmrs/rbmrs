@@ -41,13 +41,13 @@
       <section>
         <div class="player" id="player">
           <iframe
-            src="https://rbmrs.github.io/tower-of-chains-web/"
+            src="https://rbmrs.dev/tower-of-chains-web/"
             title="Tower of Chains — playable WebGL build"
             width="960" height="644" scrolling="no"
             allow="fullscreen; autoplay; gamepad"
             allowfullscreen></iframe>
         </div>
-        <p class="player-meta note">Desktop only. Click the game to focus it. <a href="https://rbmrs.github.io/tower-of-chains-web/" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a></p>
+        <p class="player-meta note">Desktop only. Click the game to focus it. <a href="https://rbmrs.dev/tower-of-chains-web/" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a></p>
       </section>
 
       <section>
@@ -162,8 +162,9 @@
     (function () {
       var box = document.getElementById('player');
       if (!box || !window.ResizeObserver) return;
+      var designWidth = box.querySelector('iframe').width;
       new ResizeObserver(function () {
-        box.style.setProperty('--player-scale', Math.min(1, box.clientWidth / 960));
+        box.style.setProperty('--player-scale', Math.min(1, box.clientWidth / designWidth));
       }).observe(box);
     })();
   </script>

@@ -13,7 +13,7 @@ A clean, minimalist personal site inspired by [dmoraes.org](https://dmoraes.org/
 | 1 | Repo | Private `rbmrs` repo, GitHub Pages from `main` branch |
 | 2 | Colors | Monochrome — black/white, blue underlined links only |
 | 3 | Profile photo | No |
-| 4 | Domain | `rbmrs.github.io` (no custom domain) |
+| 4 | Domain | `rbmrs.dev` via user site repo `rbmrs/rbmrs.github.io`; project sites serve at `rbmrs.dev/<repo>/` |
 | 5 | Projects | Ship with Thumbcraft + Omarchy Smart Enter |
 | 6 | Fonts | System fonts only (`system-ui`, `monospace`) — zero external requests |
 | 7 | Accessibility | Semantic HTML, good contrast, focus styles |

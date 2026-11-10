@@ -213,8 +213,10 @@ main a:hover {
 /* Player breaks out of the text column; the Unity build is a fixed 960x642 page, scaled down to fit. */
 .player {
   --player-scale: 1;
-  width: min(960px, 100vw - 2 * var(--spacing));
-  aspect-ratio: 960 / 644;
+  --player-w: 960;
+  --player-h: 644;
+  width: min(calc(var(--player-w) * 1px), 100vw - 2 * var(--spacing));
+  aspect-ratio: var(--player-w) / var(--player-h);
   margin-left: 50%;
   translate: -50% 0;
   overflow: hidden;
@@ -223,11 +225,17 @@ main a:hover {
 
 .player iframe {
   display: block;
-  width: 960px;
-  height: 644px;
+  width: calc(var(--player-w) * 1px);
+  height: calc(var(--player-h) * 1px);
   border: 0;
   transform: scale(var(--player-scale));
   transform-origin: 0 0;
+}
+
+.player--type-master {
+  --player-h: 600;
+  background: var(--color-bg);
+  border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
 }
 
 .player-meta {
