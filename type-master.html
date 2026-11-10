@@ -48,7 +48,8 @@
 
       <section>
         <p class="section-label">Type Master</p>
-        <p>Timed typing game, built with React. Type the highlighted word, then press <kbd>Space</kbd> or <kbd>Enter</kbd>. The timer starts on your first keystroke. Pick a 30s, 1m or 3m round.</p>
+        <p lang="en" data-game-lang="en">Timed typing game, built with React. Type the highlighted word, then press <kbd>Space</kbd> or <kbd>Enter</kbd>. The timer starts on your first keystroke. Pick a 30s, 1m or 3m round.</p>
+        <p lang="pt-BR" data-game-lang="pt" hidden>Jogo de digitação contra o tempo, feito com React. Digite a palavra em destaque e aperte <kbd>Espaço</kbd> ou <kbd>Enter</kbd>. O tempo começa na primeira tecla. Escolha uma rodada de 30s, 1m ou 3m.</p>
       </section>
     </main>
 
@@ -130,6 +131,29 @@
         updateLabel();
       });
       updateLabel();
+    })();
+  </script>
+  <script>
+    // The text under the game follows the game's language menu. The game sets
+    // its own <html lang>; watch it, since the iframe is on the same origin.
+    (function () {
+      var frame = document.querySelector('#player iframe');
+      var texts = document.querySelectorAll('[data-game-lang]');
+      if (!frame || !texts.length) return;
+      function sync(doc) {
+        var lang = (doc.documentElement.lang || '').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+        texts.forEach(function (p) { p.hidden = p.getAttribute('data-game-lang') !== lang; });
+      }
+      function watch() {
+        var doc;
+        try { doc = frame.contentDocument; } catch (err) { return; }
+        if (!doc || !doc.documentElement) return;
+        sync(doc);
+        new MutationObserver(function () { sync(doc); })
+          .observe(doc.documentElement, { attributes: true, attributeFilter: ['lang'] });
+      }
+      frame.addEventListener('load', watch);
+      watch();
     })();
   </script>
   <script>
