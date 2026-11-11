@@ -6,8 +6,12 @@
   <meta name="color-scheme" content="light dark">
   <script>
     (function () {
+      // Older versions kept the choice forever; drop it so the system rules again.
       try {
-        var stored = localStorage.getItem('theme');
+        localStorage.removeItem('theme');
+      } catch (e) {}
+      try {
+        var stored = sessionStorage.getItem('theme');
         if (stored === 'light' || stored === 'dark') {
           document.documentElement.setAttribute('data-theme', stored);
         }
@@ -109,10 +113,23 @@
     (function () {
       var button = document.getElementById('theme-toggle');
       if (!button) return;
-      function current() {
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+      function system() {
+        return media.matches ? 'dark' : 'light';
+      }
+      function override() {
         var attr = document.documentElement.getAttribute('data-theme');
-        if (attr === 'light' || attr === 'dark') return attr;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return attr === 'light' || attr === 'dark' ? attr : null;
+      }
+      function current() {
+        return override() || system();
+      }
+      // Without an override, the page follows the system setting again.
+      function clearOverride() {
+        document.documentElement.removeAttribute('data-theme');
+        try {
+          sessionStorage.removeItem('theme');
+        } catch (e) {}
       }
       function updateLabel() {
         var target = current() === 'dark' ? 'light' : 'dark';
@@ -121,12 +138,25 @@
       }
       button.addEventListener('click', function () {
         var next = current() === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        try {
-          localStorage.setItem('theme', next);
-        } catch (e) {}
+        if (next === system()) {
+          clearOverride();
+        } else {
+          document.documentElement.setAttribute('data-theme', next);
+          try {
+            sessionStorage.setItem('theme', next);
+          } catch (e) {}
+        }
         updateLabel();
       });
+      function onSystemChange() {
+        if (override() === system()) clearOverride();
+        updateLabel();
+      }
+      if (media.addEventListener) {
+        media.addEventListener('change', onSystemChange);
+      } else if (media.addListener) {
+        media.addListener(onSystemChange);
+      }
       updateLabel();
     })();
   </script>
