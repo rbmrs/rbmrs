@@ -285,7 +285,6 @@ main a:hover {
   height: clamp(28rem, 100svh - 5rem, 56rem);
   aspect-ratio: auto;
   background: var(--color-bg);
-  border: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
 }
 
 .player--type-master iframe {
@@ -298,8 +297,6 @@ main a:hover {
 @media (max-width: 600px) {
   .player--type-master {
     width: 100vw;
-    border-left: 0;
-    border-right: 0;
   }
 }
 
